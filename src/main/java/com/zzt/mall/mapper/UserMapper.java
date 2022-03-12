@@ -2,9 +2,12 @@ package com.zzt.mall.mapper;
 
 import com.zzt.mall.entity.UserInfo;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
-@Mapper
+@Repository
 public interface UserMapper {
 
-    UserInfo getByUsernameAndPassword(UserInfo userInfo);
+    UserInfo getByUsernameAndPassword(String userName,String password);
+
+    UserInfo getByUserName(String userName);
 }

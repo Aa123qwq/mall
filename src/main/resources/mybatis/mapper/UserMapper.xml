@@ -8,4 +8,14 @@
     <select id="getByUserNameAndPassword" resultType="com.zzt.mall.entity.UserInfo">
         select * from user_info where user_name=#{userName} and password=#{password}
     </select>
+
+    <select id="getByUserName" resultType="com.zzt.mall.entity.UserInfo">
+        select * from user_info where user_name=#{userName}
+    </select>
+
+    <insert id="register" parameterType="com.zzt.mall.entity.UserInfo" useGeneratedKeys="true" keyProperty="userId">
+        insert into user_info(user_name, password, status, email) VALUES (
+                                                                         #{userName},#{password},#{status},#{email}
+                                                                         )
+    </insert>
 </mapper>

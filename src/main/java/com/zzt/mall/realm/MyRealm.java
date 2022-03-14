@@ -20,6 +20,12 @@ public class MyRealm extends AuthorizingRealm{
         return token instanceof JwtToken;
     }
 
+    /**
+     * 身份验证
+     * @param authenticationToken
+     * @return
+     * @throws AuthenticationException
+     */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException{
         String token=(String)authenticationToken.getCredentials();
@@ -34,6 +40,11 @@ public class MyRealm extends AuthorizingRealm{
             throw new UnknownAccountException();
     }
 
+    /**
+     * 检测用户权限
+     * @param principals
+     * @return
+     */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals){
         String userName=JWTUtil.getUserName(principals.toString());

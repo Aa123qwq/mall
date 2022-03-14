@@ -11,11 +11,15 @@ public class UserInfoService {
     private UserMapper userMapper;
 
     public UserInfo getByUserNameAndPassword(String userName,String password){
-        UserInfo userInfo=userMapper.getByUsernameAndPassword(userName,password);
+        UserInfo userInfo=userMapper.getByUserNameAndPassword(userName,password);
         return userInfo;
     }
 
     public UserInfo getByUserName(String username){
         return userMapper.getByUserName(username);
+    }
+
+    public int register(UserInfo userInfo){
+        return userMapper.register(userInfo);
     }
 }
